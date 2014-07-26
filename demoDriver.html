@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Slider Demo</title>
+  <style>
+    body
+    {
+      font-family: helvetica, arial, sans-serif;
+      font-size: 1.3em;
+      color: #cccccc;
+      background: #666666;
+    }
+    .layer
+    {
+      margin-left: 20px;
+      height: 280px;
+      width: 280px;
+      background: #222222;
+      touch-action: none;
+      -ms-touch-action: none;
+    }
+    #top
+    {
+      border-bottom: 2px solid blue;
+    }
+    #bottom
+    {
+      height: 135px;
+    }
+    .container
+    {
+      float: left;
+      margin-left: 20px;
+      text-align: center;
+    }
+    .horizSliderClass
+    {
+      margin-top: 20px;
+      margin-left: 5px;
+      float: left;
+    }
+  </style>
+  <script src="slider.js"></script>
+</head>
+<body>
+  <div class="layer" id="top">
+    <div class="container" id="a"></div>
+    <div class="container" id="b"></div>
+    <div class="container" id="c"></div>
+  </div>
+  <div class="layer" id="bottom">
+    <div class="container" id="d"></div>
+    <div class="container" id="e"></div>
+  </div>
+  <script>
+    var aSlider = new VertSlider(
+      function (val) {
+        console.log('aSlider val:', val);
+      },
+      'a', 'aLabel', '#3366dd', 40, 200
+    );
+    aSlider.canvasEl.style.background = '#444477';
+    aSlider.canvasEl.style.border = '2px solid #0033cc';
+
+    var bSlider = new VertSlider(
+      function (val) {
+        val = Math.floor(100 * val);
+        console.log('bSlider val: ', val);
+        this.outputEl.innerHTML = val;
+        console.log('bSlider val:', val);
+      },
+      'b', 'bLabel', '#ee3366', 40, 200
+    );
+    bSlider.outputIsOverridden = true;
+    bSlider.setValue(0.5);
+    bSlider.canvasEl.style.background = '#774444';
+    bSlider.canvasEl.style.border = '2px solid #cc3322';
+
+    var cSlider = new VertSlider(
+      function (val) {
+        console.log('cSlider val:', val);
+      },
+      'c', 'cLabel', '#3366dd', 40, 200
+    );
+    cSlider.canvasEl.style.background = '#444477';
+    cSlider.canvasEl.style.border = '2px solid #0033cc';
+
+    var dSlider = new HorizSlider(
+      function (val) {
+        val = (Math.round(val * 40) - 20) * 1;
+        console.log('dSlider val: ', val);
+        this.outputEl.innerHTML = val;
+      },
+      'd', 'D', '#33dd66', 160, 30
+    );
+    dSlider.outputIsOverridden = true;
+    dSlider.setValue(0.5);
+    dSlider.setClass('horizSliderClass');
+    dSlider.canvasEl.style.background = '#447744';
+    dSlider.canvasEl.style.border = '2px solid #00cc33';
+
+    var eSlider = new HorizSlider(
+      function (val) {
+        val = (Math.round(val * 40) - 20) * 1;
+        console.log('eSlider val: ', val);
+        this.outputEl.innerHTML = val;
+      },
+      'e', 'E', '#33dd66', 160, 30
+    );
+    eSlider.outputIsOverridden = true;
+    eSlider.setValue(0.5);
+    eSlider.setClass('horizSliderClass');
+    eSlider.canvasEl.style.background = '#447744';
+    eSlider.canvasEl.style.border = '2px solid #00cc33';
+  </script>
+</body>
+</html>
