@@ -1,5 +1,7 @@
-JavaScript SLIDERS FOR MOUSE AND TOUCH
+JavaScript Sliders for Mouse and Touch
 =================
+
+DEPRECATED & REPLACED BY: https://github.com/0la0/TouchLibJS
 
 JavaScript prototype for creating intuitive and responsive UI sliders.
 
